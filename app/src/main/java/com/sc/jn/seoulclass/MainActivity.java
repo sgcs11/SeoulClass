@@ -1,5 +1,6 @@
 package com.sc.jn.seoulclass;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,18 +12,47 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.TextView;
+
+import com.sc.jn.seoulclass.Module.User;
+import com.sc.jn.seoulclass.Util.PermissionUtil;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private String TAG = "jino";
+    private String[] permissions = {Manifest.permission.INTERNET};
+    private WebView webView;
+    private TextView txtToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        txtToolbar = (TextView)findViewById(R.id.txt_toolbar);
+        txtToolbar.setText(User.address);
+
+        webView = (WebView) findViewById(R.id.webView01);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setAppCacheEnabled(false);
+
+        webView.setWebViewClient(new WebViewClient(){
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                webView.loadUrl(url);
+                return true;
+            }
+        });
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -41,7 +71,27 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        txtToolbar.setText(User.address);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (!PermissionUtil.checkPermissions(this, Manifest.permission.INTERNET)) {
+            PermissionUtil.requestPermissions(this,permissions,1);
+        } else {
+            webView.loadUrl("http://www.seoul.go.kr/main/index.html");
+        }
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -55,8 +105,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 

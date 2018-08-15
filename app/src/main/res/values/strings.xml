@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">SeoulClass</string>
+
     <string name="title_activity_main">주소를 설정해주세요</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,14 +9,27 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!--Error-->
-    <string name="service_not_available">Service Not Available</string>
-    <string name="invalid_lat_long_used">Invalid Lat or Long Used</string>
-    <string name="no_address_found">No Address Found</string>
 
     <!--FindAdressActivity-->
     <string name="fa_title">지번, 도로명, 건물명을 \n입력하세요.</string>
     <string name="fa_example">예) OO동 12-3 또는 OO아파트</string>
     <string name="fa_getMyLocation">현 위치로 주소 설정</string>
     <string name="fa_latestAdress">최근 주소</string>
+
+    <string name="no_geocoder_available">No geocoder available</string>
+
+    <string name="fetch_address">Fetch address</string>
+
+    <string name="address_found">Address found</string>
+
+    <string name="no_address_found">Sorry, no address found</string>
+    <string name="no_location_data_provided">No location data provided</string>
+    <string name="service_not_available">Sorry, the service is not available</string>
+    <string name="invalid_lat_long_used">Invalid latitude or longitude used</string>
+
+
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core
+        functionality.</string>
+    <string name="settings">Settings</string>
 </resources>
