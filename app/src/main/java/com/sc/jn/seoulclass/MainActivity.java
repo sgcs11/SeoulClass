@@ -12,13 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.sc.jn.seoulclass.Module.User;
+import com.sc.jn.seoulclass.Model.User;
 import com.sc.jn.seoulclass.Util.PermissionUtil;
 
 public class MainActivity extends AppCompatActivity
@@ -151,5 +150,8 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
+    public void c1Click(View view){
+        Intent intent = new Intent(getApplicationContext(), ClassListActivity.class);
+        startActivity(intent);
+    }
 }
