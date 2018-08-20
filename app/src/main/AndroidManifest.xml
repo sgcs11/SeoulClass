@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sc.jn.seoulclass">
 
+
+
     <!-- 주소 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -30,11 +32,10 @@
             android:name=".FindAdressActivity"
             android:theme="@style/AppTheme" />
 
-        <service
-            android:name=".Service.FetchAddressIntentService"
-            android:exported="false" />
-
         <activity android:name=".ClassListActivity"></activity>
+
+        <meta-data android:name="com.sc.jn.seoulclass.AppKey"
+            android:value="69ece4171c3474f04c7984d972e10497"/>
     </application>
 
 </manifest>

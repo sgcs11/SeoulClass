@@ -9,6 +9,16 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!--MainActivity-->
+    <string name="main_1">건강/스포츠</string>
+    <string name="main_2">교양</string>
+    <string name="main_3">도시농업</string>
+    <string name="main_4">미술제작</string>
+    <string name="main_5">역사</string>
+    <string name="main_6">자연/과학</string>
+    <string name="main_7">체험/견학</string>
+    <string name="main_8">취미</string>
+    <string name="main_9">기타</string>
 
     <!--FindAdressActivity-->
     <string name="fa_title">지번, 도로명, 건물명을 \n입력하세요.</string>

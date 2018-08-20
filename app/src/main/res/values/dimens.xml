@@ -17,4 +17,8 @@
     <dimen name="fa_img">20dp</dimen>
     <dimen name="fa_vertical_margin">10dp</dimen>
     <dimen name="fa_horizontal_margin">5dp</dimen>
+
+    <!--MainActivity-->
+    <dimen name="mTxt">15dp</dimen>
+    <dimen name="mWebView">250dp</dimen>
 </resources>

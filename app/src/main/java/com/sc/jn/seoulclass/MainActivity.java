@@ -18,12 +18,12 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.sc.jn.seoulclass.Model.User;
+import com.sc.jn.seoulclass.Util.ClassListAdapter;
 import com.sc.jn.seoulclass.Util.PermissionUtil;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private String TAG = "jino";
     private String[] permissions = {Manifest.permission.INTERNET};
     private WebView webView;
     private TextView txtToolbar;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         txtToolbar = (TextView)findViewById(R.id.txt_toolbar);
         txtToolbar.setText(User.address);
 
-        webView = (WebView) findViewById(R.id.webView01);
+        webView = (WebView) findViewById(R.id.webView_main);
         WebSettings webSettings = webView.getSettings();
         webSettings.setAppCacheEnabled(false);
 
@@ -150,8 +150,23 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void c1Click(View view){
+    public void CategoryClickHandler(View view){
         Intent intent = new Intent(getApplicationContext(), ClassListActivity.class);
-        startActivity(intent);
+        switch(view.getId()){
+            case  R.id.main_1 : {
+                intent.putExtra("nm", getString(R.string.main_1));
+                startActivity(intent);
+            }
+            break;
+            case R.id.main_6 : {
+                intent.putExtra("nm",getString(R.string.main_6));
+                startActivity(intent);
+            }
+            break;
+
+
+
+        }
+
     }
 }

@@ -59,18 +59,16 @@ public class ClassListAdapter extends BaseAdapter{
             ClassListItem classListItem = classItemList.get(position);
 
             titleTextView.setText(classListItem.getTitle());
-            dateTextView.setText(classListItem.getDate());
+            dateTextView.setText(classListItem.getOpnbgndt());
             locationTextView.setText(classListItem.getLocation());
 
             return convertView;
 
     }
 
-    public void addItem(String title, String date, String location){
-        ClassListItem item = new ClassListItem();
-        item.setDate(date);
-        item.setLocation(location);
-        item.setTitle(title);
+    public void addItem(String title, String location, String maxclassnm, String minclassnm, String pay, String usetgtinfo, String url, String opnbgndt, String opnenddt, String rcptbgnt, String rcptenddt){
+        ClassListItem item = new ClassListItem( title,  location,  maxclassnm,  minclassnm,  pay,  usetgtinfo,  url,  opnbgndt,  opnenddt,  rcptbgnt,  rcptenddt);
+
 
         classItemList.add(item);
     }
