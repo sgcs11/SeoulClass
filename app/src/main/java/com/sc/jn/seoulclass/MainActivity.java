@@ -15,6 +15,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.sc.jn.seoulclass.Model.User;
@@ -69,8 +70,16 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-
+        // Login event
+        View headerview = navigationView.getHeaderView(0);
+        Button bt_login = (Button)headerview.findViewById(R.id.login_btn);
+        bt_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

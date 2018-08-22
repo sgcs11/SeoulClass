@@ -42,4 +42,8 @@
     <string name="permission_denied_explanation">Permission was denied, but is needed for core
         functionality.</string>
     <string name="settings">Settings</string>
+
+    <string name="facebook_app_id">254141401898763</string>
+    <string name="fb_login_protocol_scheme">fb254141401898763</string>
+    <string name="kakao_app_key">c635405ee8fc12bda8b0dc5f782787a2</string>
 </resources>

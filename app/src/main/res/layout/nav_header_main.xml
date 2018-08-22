@@ -46,6 +46,7 @@
 
     </LinearLayout>
     <Button
+        android:id="@+id/login_btn"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
