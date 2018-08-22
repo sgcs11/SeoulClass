@@ -13,6 +13,9 @@ public class ClassListItem {
     private String rcptbgnt;//접수시작일시
     private String rcptenddt;//접수종료일시
 
+    public ClassListItem() {
+    }
+
     public ClassListItem(String title, String location, String maxclassnm, String minclassnm, String pay, String usetgtinfo, String url, String opnbgndt, String opnenddt, String rcptbgnt, String rcptenddt) {
         this.title = title;
         this.location = location;
