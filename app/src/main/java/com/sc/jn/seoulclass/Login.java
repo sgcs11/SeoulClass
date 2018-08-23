@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +31,8 @@ import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
-import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
@@ -52,7 +53,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Created by Joa Chang Hwa on 2018-08-22.
@@ -101,6 +101,13 @@ public class Login extends AppCompatActivity{
         ID=(EditText)findViewById(R.id.editText);
         password=(EditText)findViewById(R.id.editText2);
 
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar_login);
+        myToolbar.setBackgroundColor(Color.WHITE);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         //==== Local Login ====//
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +131,6 @@ public class Login extends AppCompatActivity{
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this,JOIN.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -164,7 +170,6 @@ public class Login extends AppCompatActivity{
                                                         Intent intent = new Intent(Login.this, ReviewTest.class);
                                                         intent.putExtra("Login_info", sObject.toString());
                                                         startActivity(intent);
-                                                        finish();
                                                     } catch (Exception e) {
                                                         e.printStackTrace();
                                                     }
@@ -242,6 +247,20 @@ public class Login extends AppCompatActivity{
         });
 
     }
+
+    //==== TOOL BAR ====//
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     //==== kakao Class ====//
 
     @Override
@@ -280,7 +299,6 @@ public class Login extends AppCompatActivity{
                     Intent intent = new Intent(Login.this, ReviewTest.class);
                     intent.putExtra("Login_info", "{\"userid\":\""+result.getKakaoAccount().getEmail()+"\",\"nickname\":\""+result.getNickname()+"\",\"type\":\"kakao\"}");
                     startActivity(intent);
-                    finish();
                 }
             });
         }
@@ -360,7 +378,6 @@ public class Login extends AppCompatActivity{
             Intent intent = new Intent(Login.this, ReviewTest.class);
             intent.putExtra("Login_info", result);
             startActivity(intent);
-            finish();
         }
     }
 
@@ -480,7 +497,6 @@ public class Login extends AppCompatActivity{
                 Intent intent = new Intent(Login.this, ReviewTest.class);
                 intent.putExtra("Login_info", result);
                 startActivity(intent);
-                finish();
             }
         }
     }

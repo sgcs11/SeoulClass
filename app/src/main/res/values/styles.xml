@@ -10,6 +10,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- JOIN EditText Style -->
+    <style name="EditText.Join" parent="Widget.AppCompat.EditText">
+        <item name="colorControlNormal">@color/coloreditNormal</item>
+        <item name="colorControlActivated">@color/coloreditActive</item>
+    </style>
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

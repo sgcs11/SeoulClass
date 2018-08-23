@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorLightGray">#ededed</color>
     <color name="colorNormalGray">#e9e9e9</color>
+    <!-- EditText color -->
+    <color name="coloreditActive">#00ced1</color>
+    <color name="coloreditError">#f90053</color>
+    <color name="coloreditNormal">#c0c0c0</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
 </resources>
