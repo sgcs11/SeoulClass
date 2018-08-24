@@ -8,14 +8,19 @@ import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -53,7 +58,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
 /**
  * Created by Joa Chang Hwa on 2018-08-22.
  */
@@ -61,17 +65,17 @@ import java.util.Map;
 public class Login extends AppCompatActivity{
     private CallbackManager callbackManager;
     private Button button;
-    private Button button2;
+    private TextView join_btn;
     private Button facebook_login;
     private Button Naver_login;
     private Button Kakako_login;
     private EditText ID;
     private EditText password;
-    public static String m_cookies="";
-    public static boolean m_session=false;
-    public static boolean isLoggedIn=false;
     private enum Type {facebook, naver, kakao,local};
     private Type type;
+
+    private ImageView ID_cancel;
+    private ImageView PWD_cancel;
 
     private JSONObject facebook_user;
 
@@ -92,7 +96,7 @@ public class Login extends AppCompatActivity{
         callbackManager = CallbackManager.Factory.create();
 
         button = (Button)findViewById(R.id.button);
-        button2 = (Button)findViewById(R.id.button2);
+        join_btn = (TextView) findViewById(R.id.join_btn);
 
         facebook_login = (Button)findViewById(R.id.facebook_login);
         Naver_login=(Button)findViewById(R.id.Naver_login);
@@ -101,6 +105,8 @@ public class Login extends AppCompatActivity{
         ID=(EditText)findViewById(R.id.editText);
         password=(EditText)findViewById(R.id.editText2);
 
+        ID_cancel=(ImageView)findViewById(R.id.ID_cancel);
+        PWD_cancel=(ImageView)findViewById(R.id.PWD_cancel);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar_login);
         myToolbar.setBackgroundColor(Color.WHITE);
@@ -108,15 +114,108 @@ public class Login extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //==== Text cancel ====//
+        int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+        ID_cancel.setColorFilter(color);
+        PWD_cancel.setColorFilter(color);
+
+        ID_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ID.setText("");
+            }
+        });
+        PWD_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                password.setText("");
+            }
+        });
+
+        ID.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    ID_cancel.setColorFilter(color);
+                }
+                else if(ID.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    ID_cancel.setColorFilter(color);
+                }
+            }
+        });
+
+        password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    PWD_cancel.setColorFilter(color);
+                }
+                else if(password.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    PWD_cancel.setColorFilter(color);
+                }
+            }
+        });
+
+        ID.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(ID.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    ID_cancel.setColorFilter(color);
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    ID_cancel.setColorFilter(color);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(password.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    PWD_cancel.setColorFilter(color);
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    PWD_cancel.setColorFilter(color);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
         //==== Local Login ====//
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 type=Type.local;
 
-                if(!isLoggedIn) {
-                    Toast.makeText(getApplicationContext(), "post", Toast.LENGTH_SHORT).show();
-
+                if(!MainActivity.isLoggedIn) {
                     new PRETASK().execute("https://seoulclass.ml/test");
                     new POSTTASK().execute("https://seoulclass.ml/login");
                 }
@@ -126,7 +225,7 @@ public class Login extends AppCompatActivity{
             }
         });
         //==== Local SignUp ====//
-        button2.setOnClickListener(new View.OnClickListener() {
+        join_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this,JOIN.class);
@@ -139,7 +238,7 @@ public class Login extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 type=Type.facebook;
-                if(!isLoggedIn) {
+                if(!MainActivity.isLoggedIn) {
                     LoginManager.getInstance().logInWithReadPermissions(Login.this,
                             Arrays.asList("public_profile","email"));
 
@@ -153,7 +252,7 @@ public class Login extends AppCompatActivity{
 
                                     //==== 로그인 되었는지 여부 세팅====//
                                     AccessToken accessToken = AccessToken.getCurrentAccessToken();
-                                    isLoggedIn = accessToken != null && !accessToken.isExpired();
+                                    MainActivity.isLoggedIn = accessToken != null && !accessToken.isExpired();
 
                                     GraphRequest request =GraphRequest.newMeRequest(loginResult.getAccessToken() ,
                                             new GraphRequest.GraphJSONObjectCallback() {
@@ -167,9 +266,15 @@ public class Login extends AppCompatActivity{
                                                         sObject.put("userid",facebook_user.get("email"));
                                                         sObject.put("nickname",facebook_user.get("name"));
                                                         sObject.put("type","facebook");
-                                                        Intent intent = new Intent(Login.this, ReviewTest.class);
-                                                        intent.putExtra("Login_info", sObject.toString());
-                                                        startActivity(intent);
+                                                        try {
+                                                            MainActivity.user_id=sObject.getString("userid");
+                                                            MainActivity.login_route=sObject.getString("type");
+                                                            MainActivity.nickname=sObject.getString("nickname");
+                                                            finish();
+                                                        }
+                                                        catch (Exception e){
+                                                            e.printStackTrace();
+                                                        }
                                                     } catch (Exception e) {
                                                         e.printStackTrace();
                                                     }
@@ -210,7 +315,7 @@ public class Login extends AppCompatActivity{
         Kakako_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!isLoggedIn) {
+                if(!MainActivity.isLoggedIn) {
                     type = Type.kakao;
                     Session.getCurrentSession().addCallback(callback);
                     Session.getCurrentSession().checkAndImplicitOpen();
@@ -237,7 +342,7 @@ public class Login extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 type=Type.naver;
-                if(!isLoggedIn) {
+                if(!MainActivity.isLoggedIn) {
                     mOAuthLoginModule.startOauthLoginActivity(Login.this, mOAuthLoginHandler);
                 }
                 else{
@@ -291,14 +396,20 @@ public class Login extends AppCompatActivity{
 
                 @Override
                 public void onSuccess(MeV2Response result) {//로그인 성공
-                    isLoggedIn=true;
+                    MainActivity.isLoggedIn=true;
                     Log.e("user id : ",""+result.getId());
                     Log.e("nickname",result.getNickname());
                     Log.e("mail",result.getKakaoAccount().getEmail());
 
-                    Intent intent = new Intent(Login.this, ReviewTest.class);
-                    intent.putExtra("Login_info", "{\"userid\":\""+result.getKakaoAccount().getEmail()+"\",\"nickname\":\""+result.getNickname()+"\",\"type\":\"kakao\"}");
-                    startActivity(intent);
+                    try {
+                        MainActivity.user_id=result.getKakaoAccount().getEmail();
+                        MainActivity.login_route="kakao";
+                        MainActivity.nickname=result.getNickname();
+                        finish();
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             });
         }
@@ -352,7 +463,7 @@ public class Login extends AppCompatActivity{
             String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
             long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
             String tokenType = mOAuthLoginModule.getTokenType(mContext);
-            isLoggedIn=true;
+            MainActivity.isLoggedIn=true;
 
             String data = mOAuthLoginModule.requestApi(mContext,accessToken,"https://openapi.naver.com/v1/nid/me");
             Log.e("data", data);
@@ -375,9 +486,16 @@ public class Login extends AppCompatActivity{
         }
 
         protected void onPostExecute(String result) {
-            Intent intent = new Intent(Login.this, ReviewTest.class);
-            intent.putExtra("Login_info", result);
-            startActivity(intent);
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                MainActivity.user_id=jsonObject.getString("userid");
+                MainActivity.login_route=jsonObject.getString("type");
+                MainActivity.nickname=jsonObject.getString("nickname");
+                finish();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -396,19 +514,19 @@ public class Login extends AppCompatActivity{
                 con.connect();
 
                 Map<String, List<String>> imap = con.getHeaderFields();
-                if(!m_session) {
+                if(!MainActivity.m_session) {
 
                     if (imap.containsKey("set-cookie")) {
                         List<String> cookies = imap.get("set-cookie");
 
                         for (int i = 0; i < cookies.size(); i++) {
-                            m_cookies = "";
-                            m_cookies += cookies.get(i);
+                            MainActivity.m_cookies = "";
+                            MainActivity.m_cookies += cookies.get(i);
                         }
-                        Log.e("cookie content", m_cookies);
-                        m_session = true;
+                        Log.e("cookie content", MainActivity.m_cookies);
+                        MainActivity.m_session = true;
                     } else {
-                        m_session = false;
+                        MainActivity.m_session = false;
                     }
                 }
 
@@ -446,9 +564,9 @@ public class Login extends AppCompatActivity{
                 url = new URL(urls[0]);
 
                 con = (HttpURLConnection) url.openConnection();
-                if(m_session){
+                if(MainActivity.m_session){
                     Log.e("cookie","cookie working");
-                    con.setRequestProperty("Cookie",m_cookies);
+                    con.setRequestProperty("Cookie",MainActivity.m_cookies);
                 }
                 con.setRequestMethod("POST");
                 con.setRequestProperty("Cache-Control","no-cache");
@@ -493,10 +611,17 @@ public class Login extends AppCompatActivity{
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             if(!result.equals("아이디 또는 비밀번호가 일치하지 않습니다.")) {//로그인이 됐으면 화면 전환
-                isLoggedIn=true;
-                Intent intent = new Intent(Login.this, ReviewTest.class);
-                intent.putExtra("Login_info", result);
-                startActivity(intent);
+                MainActivity.isLoggedIn=true;
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    MainActivity.user_id=jsonObject.getString("userid");
+                    MainActivity.login_route=jsonObject.getString("type");
+                    MainActivity.nickname="";
+                    finish();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -522,14 +647,4 @@ public class Login extends AppCompatActivity{
             }
         }
     }
-
-    @Override
-    public void onPause(){//앱 멈출 때 하지 말아야할 것
-        super.onPause();
-    }
-    @Override
-    public void onResume(){//앱 재부팅시 동작
-        super.onResume();
-    }
-
 }

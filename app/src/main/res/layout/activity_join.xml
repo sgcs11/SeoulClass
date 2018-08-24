@@ -83,6 +83,14 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 app:srcCompat="@drawable/signup_check" />
+
+            <ImageView
+                android:id="@+id/id_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/idcheck_image"
+                app:srcCompat="@drawable/text_cancel" />
         </RelativeLayout>
         <LinearLayout
             android:id="@+id/id_underline"
@@ -142,6 +150,14 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentTop="true"
                         app:srcCompat="@drawable/signup_check" />
+
+                    <ImageView
+                        android:id="@+id/pwd_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toStartOf="@+id/pwdcheck_image"
+                        app:srcCompat="@drawable/text_cancel" />
                 </RelativeLayout>
                 <LinearLayout
                     android:id="@+id/pwd_underline"
@@ -201,6 +217,14 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentTop="true"
                         app:srcCompat="@drawable/signup_check" />
+
+                    <ImageView
+                        android:id="@+id/confirm_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toStartOf="@+id/confirmcheck_image"
+                        app:srcCompat="@drawable/text_cancel" />
                 </RelativeLayout>
                 <LinearLayout
                     android:id="@+id/confirm_underline"
@@ -259,6 +283,14 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentTop="true"
                         app:srcCompat="@drawable/signup_check" />
+
+                    <ImageView
+                        android:id="@+id/phone_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toStartOf="@+id/phonecheck_image"
+                        app:srcCompat="@drawable/text_cancel" />
                 </RelativeLayout>
                 <LinearLayout
                     android:id="@+id/phone_underline"

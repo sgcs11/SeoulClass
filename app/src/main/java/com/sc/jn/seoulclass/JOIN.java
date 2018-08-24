@@ -59,6 +59,11 @@ public class JOIN extends AppCompatActivity{
     private ImageView confirmcheck_image;
     private ImageView phonecheck_image;
 
+    private ImageView id_clear;
+    private ImageView pwd_clear;
+    private ImageView confirm_clear;
+    private ImageView phone_clear;
+
     private boolean IDok=false;
     private boolean PWDok=false;
     private boolean CONFIRMok=false;
@@ -99,11 +104,45 @@ public class JOIN extends AppCompatActivity{
         confirmcheck_image=(ImageView)findViewById(R.id.confirmcheck_image);
         phonecheck_image=(ImageView)findViewById(R.id.phonecheck_image);
 
-        int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+        id_clear=(ImageView)findViewById(R.id.id_clear);
+        pwd_clear=(ImageView)findViewById(R.id.pwd_clear);
+        confirm_clear=(ImageView)findViewById(R.id.confirm_clear);
+        phone_clear=(ImageView)findViewById(R.id.phone_clear);
+
+        int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
         idcheck_image.setColorFilter(color);
         pwdcheck_image.setColorFilter(color);
         confirmcheck_image.setColorFilter(color);
         phonecheck_image.setColorFilter(color);
+        id_clear.setColorFilter(color);
+        pwd_clear.setColorFilter(color);
+        confirm_clear.setColorFilter(color);
+        phone_clear.setColorFilter(color);
+
+        id_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ID.setText("");
+            }
+        });
+        pwd_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PWD.setText("");
+            }
+        });
+        confirm_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CONFIRM.setText("");
+            }
+        });
+        phone_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PHONE.setText("");
+            }
+        });
 
         ID.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -113,8 +152,15 @@ public class JOIN extends AppCompatActivity{
                     IDtext.setText("");
                     //ID.getBackground().mutate().clearColorFilter();
                     id_underline.setBackgroundResource(R.drawable.blue_underline);
+                    if(ID.getText().toString().length()>0){
+                        int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                        id_clear.setColorFilter(color);
+                    }
                 }
                 else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    id_clear.setColorFilter(color);
+
                     IDpointer.setTextColor(Color.parseColor("#c0c0c0"));
                     if(ID.getText().toString().length()==0){
                         IDtext.setText("아이디를 입력해주세요");
@@ -150,10 +196,23 @@ public class JOIN extends AppCompatActivity{
                     idcheck_image.setColorFilter(color);
                     IDok=true;
                 }
-                else{
+                else if(ID.getText().toString().length()>0){
                     int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
                     idcheck_image.setColorFilter(color);
                     IDok=false;
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    idcheck_image.setColorFilter(color);
+                    IDok=false;
+                }
+                if(ID.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    id_clear.setColorFilter(color);
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    id_clear.setColorFilter(color);
                 }
             }
 
@@ -169,8 +228,15 @@ public class JOIN extends AppCompatActivity{
                     PWDpointer.setTextColor(Color.parseColor("#000000"));
                     PWDtext.setText("");
                     pwd_underline.setBackgroundResource(R.drawable.blue_underline);
+                    if(PWD.getText().toString().length()>0){
+                        int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                        pwd_clear.setColorFilter(color);
+                    }
                 }
                 else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    pwd_clear.setColorFilter(color);
+
                     PWDpointer.setTextColor(Color.parseColor("#c0c0c0"));
                     if(PWD.getText().toString().length()==0){
                         PWDtext.setText("비밀번호를 입력해주세요");
@@ -201,11 +267,39 @@ public class JOIN extends AppCompatActivity{
                         pwdcheck_image.setColorFilter(color);
                         PWDok=true;
                     }
-                    else{
+                    else if(PWD.getText().toString().length()>0){
                         int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
                         pwdcheck_image.setColorFilter(color);
                         PWDok=false;
                     }
+                    else{
+                        int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                        pwdcheck_image.setColorFilter(color);
+                        PWDok=false;
+                    }
+                if(PWD.getText().toString().equals(CONFIRM.getText().toString())){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditActive);
+                    confirmcheck_image.setColorFilter(color);
+                    CONFIRMok=true;
+                }
+                else if(CONFIRM.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    confirmcheck_image.setColorFilter(color);
+                    CONFIRMok=false;
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    confirmcheck_image.setColorFilter(color);
+                    CONFIRMok=false;
+                }
+                if(PWD.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    pwd_clear.setColorFilter(color);
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    pwd_clear.setColorFilter(color);
+                }
             }
 
             @Override
@@ -220,8 +314,15 @@ public class JOIN extends AppCompatActivity{
                     Confirmpointer.setTextColor(Color.parseColor("#000000"));
                     CONFIRMtext.setText("");
                     confirm_underline.setBackgroundResource(R.drawable.blue_underline);
+                    if(CONFIRM.getText().toString().length()>0){
+                        int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                        confirm_clear.setColorFilter(color);
+                    }
                 }
                 else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    confirm_clear.setColorFilter(color);
+
                     Confirmpointer.setTextColor(Color.parseColor("#c0c0c0"));
                     if(CONFIRM.getText().toString().length()==0){
                         CONFIRMtext.setText("비밀번호를 다시 한 번 입력해주세요");
@@ -252,10 +353,23 @@ public class JOIN extends AppCompatActivity{
                     confirmcheck_image.setColorFilter(color);
                     CONFIRMok=true;
                 }
-                else{
+                else if(CONFIRM.getText().toString().length()>0){
                     int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
                     confirmcheck_image.setColorFilter(color);
                     CONFIRMok=false;
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    confirmcheck_image.setColorFilter(color);
+                    CONFIRMok=false;
+                }
+                if(CONFIRM.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    confirm_clear.setColorFilter(color);
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    confirm_clear.setColorFilter(color);
                 }
             }
 
@@ -271,8 +385,15 @@ public class JOIN extends AppCompatActivity{
                     Phonepointer.setTextColor(Color.parseColor("#000000"));
                     PHONEtext.setText("");
                     phone_underline.setBackgroundResource(R.drawable.blue_underline);
+                    if(PHONE.getText().toString().length()>0){
+                        int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                        phone_clear.setColorFilter(color);
+                    }
                 }
                 else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    phone_clear.setColorFilter(color);
+
                     Phonepointer.setTextColor(Color.parseColor("#c0c0c0"));
                     if(PHONE.getText().toString().length()==0)
                     {
@@ -303,10 +424,23 @@ public class JOIN extends AppCompatActivity{
                     phonecheck_image.setColorFilter(color);
                     PHONEok=true;
                 }
-                else{
+                else if(PHONE.getText().toString().length()>0){
                     int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
                     phonecheck_image.setColorFilter(color);
                     PHONEok=false;
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    phonecheck_image.setColorFilter(color);
+                    PHONEok=false;
+                }
+                if(PHONE.getText().toString().length()>0){
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.coloreditNormal);
+                    phone_clear.setColorFilter(color);
+                }
+                else{
+                    int color = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+                    phone_clear.setColorFilter(color);
                 }
             }
 
@@ -368,9 +502,9 @@ public class JOIN extends AppCompatActivity{
                 url = new URL(urls[0]);
 
                 con = (HttpURLConnection) url.openConnection();
-                if(Login.m_session){
+                if(MainActivity.m_session){
                     Log.e("cookie","cookie working");
-                    con.setRequestProperty("Cookie",Login.m_cookies);
+                    con.setRequestProperty("Cookie",MainActivity.m_cookies);
                 }
                 con.setRequestMethod("POST");
                 con.setRequestProperty("Cache-Control","no-cache");

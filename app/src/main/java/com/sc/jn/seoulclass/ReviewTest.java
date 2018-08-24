@@ -24,7 +24,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.login.Login;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.nhn.android.naverlogin.OAuthLogin;
@@ -119,7 +118,7 @@ public class ReviewTest extends AppCompatActivity {
             public void onClick(View view) {
                 new LOGOUTTASK().execute("https://seoulclass.ml/logout");
                 Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-                com.sc.jn.seoulclass.Login.m_session = false;
+                MainActivity.m_session = false;
                 Intent intent1 = new Intent(ReviewTest.this, com.sc.jn.seoulclass.Login.class);
                 startActivity(intent1);
                 finish();
@@ -182,18 +181,18 @@ public class ReviewTest extends AppCompatActivity {
 
                 con = (HttpURLConnection) url.openConnection();
 
-                if(com.sc.jn.seoulclass.Login.m_session){
+                if(MainActivity.m_session){
                     Log.e("cookie","cookie working");
-                    con.setRequestProperty("Cookie", com.sc.jn.seoulclass.Login.m_cookies);
+                    con.setRequestProperty("Cookie", MainActivity.m_cookies);
                 }
                 con.connect();
 
                 Map<String, List<String>> imap = con.getHeaderFields();//뭐라도 수행해야됨
                 con.disconnect();
-                com.sc.jn.seoulclass.Login.isLoggedIn=false;
+                MainActivity.isLoggedIn=false;
                 OAuthLogin.getInstance().logout(com.sc.jn.seoulclass.Login.mContext);
 
-                //==== kakao Logout =====//
+                //==== kakao LOGOUTTASK =====//
                 UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
                     @Override
                     public void onCompleteLogout() {
@@ -288,9 +287,9 @@ public class ReviewTest extends AppCompatActivity {
                     url = new URL(urls[0]);
 
                     con = (HttpURLConnection) url.openConnection();
-                    if(com.sc.jn.seoulclass.Login.m_session){
+                    if(MainActivity.m_session){
                         Log.e("cookie","cookie working");
-                        con.setRequestProperty("Cookie", com.sc.jn.seoulclass.Login.m_cookies);
+                        con.setRequestProperty("Cookie", MainActivity.m_cookies);
                     }
                     con.setRequestMethod("POST");
                     con.setRequestProperty("Cache-Control","no-cache");
@@ -365,9 +364,9 @@ public class ReviewTest extends AppCompatActivity {
                     url = new URL(urls[0]);
 
                     con = (HttpURLConnection) url.openConnection();
-                    if(com.sc.jn.seoulclass.Login.m_session){
+                    if(MainActivity.m_session){
                         Log.e("cookie","cookie working");
-                        con.setRequestProperty("Cookie", com.sc.jn.seoulclass.Login.m_cookies);
+                        con.setRequestProperty("Cookie", MainActivity.m_cookies);
                     }
                     con.setRequestMethod("POST");
                     con.setRequestProperty("Cache-Control","no-cache");
@@ -443,9 +442,9 @@ public class ReviewTest extends AppCompatActivity {
                 url = new URL(urls[0]);
 
                 con = (HttpURLConnection) url.openConnection();
-                if(com.sc.jn.seoulclass.Login.m_session){
+                if(MainActivity.m_session){
                     Log.e("cookie","cookie working");
-                    con.setRequestProperty("Cookie", com.sc.jn.seoulclass.Login.m_cookies);
+                    con.setRequestProperty("Cookie", MainActivity.m_cookies);
                 }
                 con.setRequestMethod("POST");
                 con.setRequestProperty("Cache-Control","no-cache");
