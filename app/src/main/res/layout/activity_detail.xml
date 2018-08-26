@@ -1,9 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".DetailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="6"
+        android:layout_margin="10sp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제목 : "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위치 : "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/maxclassnm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대분류 : "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/minclassnm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="소분류 : "
+            android:textSize="20dp"
+            />
+        <TextView
+            android:id="@+id/pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결제방법 - "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/usetgtinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대상 : "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="페이지 바로가기 : "
+            android:textSize="20dp"
+            android:linksClickable="true"
+            android:autoLink="web"
+            />
+
+        <TextView
+            android:id="@+id/opnbgndt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수업 시작일 : "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/opnenddt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수업 종료일 : "
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/rcptbgnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="접수 시작일 : "
+            android:textSize="20dp"
+            />
+        <TextView
+            android:id="@+id/rcptenddt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="접수 마감일 : "
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="4"
+        >
+        <!--이곳에 리뷰 작업-->
+
+
+    </LinearLayout>
+
+</LinearLayout>
