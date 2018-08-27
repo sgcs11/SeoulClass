@@ -16,7 +16,6 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -107,6 +106,7 @@ public class MainActivity extends AppCompatActivity
         LinearLayout nav_dibs = (LinearLayout)headerView.findViewById(R.id.nav_dibs);//찜
         LinearLayout nav_review = (LinearLayout)headerView.findViewById(R.id.nav_review);//리뷰관리
         Login_btn =(Button)headerView.findViewById(R.id.login_btn);
+        WhoLogin = (TextView)headerView.findViewById(R.id.WhoLogin);
         Login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,6 +180,12 @@ public class MainActivity extends AppCompatActivity
         txtView[10].setText(getString(R.string.main_10,managePublicData.getCategory10ArrayList().size()));
         txtView[11].setText(getString(R.string.main_11,managePublicData.getCategory11ArrayList().size()));
 
+        if(nickname.length()==0)
+            WhoLogin.setText(user_id);
+        else
+            WhoLogin.setText(nickname);
+        if(isLoggedIn)
+            Login_btn.setText("로그아웃");
 
     }
 

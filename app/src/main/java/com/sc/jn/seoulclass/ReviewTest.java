@@ -24,9 +24,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
-import com.nhn.android.naverlogin.OAuthLogin;
+import com.sc.jn.seoulclass.Util.LOGOUTTASK;
 import com.sc.jn.seoulclass.Util.ReviewItem;
 import com.sc.jn.seoulclass.Util.ReviewItemView;
 
@@ -43,8 +41,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class ReviewTest extends AppCompatActivity {
     private Button button;
@@ -52,7 +48,7 @@ public class ReviewTest extends AppCompatActivity {
     private TextView textView;
     private RatingBar ratingBar;
     private EditText Review;
-    private ReviewAdapter adapter;
+    private ReviewAdapter Reviewadapter;
     private CheckBox checkBox;
 
     String userid;
@@ -84,14 +80,14 @@ public class ReviewTest extends AppCompatActivity {
 
         //==== ListView ====//
         final ListView listView = (ListView)findViewById(R.id.listView);
-        adapter = new ReviewAdapter();
-        listView.setAdapter(adapter);
+        Reviewadapter = new ReviewAdapter();
+        listView.setAdapter(Reviewadapter);
 
         //==== ListView에서 삭제 ====//
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ReviewItem item = (ReviewItem)adapter.getItem(position);
+                ReviewItem item = (ReviewItem) Reviewadapter.getItem(position);
                 Toast.makeText(getApplicationContext(),"삭제:"+item.getID(),Toast.LENGTH_SHORT).show();
                 show(position);
             }
@@ -140,7 +136,7 @@ public class ReviewTest extends AppCompatActivity {
                     idtemp="익명";
                 else
                     idtemp=userid+"/"+login_route;
-                adapter.addItem(new ReviewItem(ratingBar.getRating(),Review.getText().toString(),idtemp));
+                Reviewadapter.addItem(new ReviewItem(ratingBar.getRating(),Review.getText().toString(),idtemp));
                 textView.setText(String.valueOf(ratingBar.getRating()+","+Review.getText().toString()));
             }
         });
@@ -155,9 +151,9 @@ public class ReviewTest extends AppCompatActivity {
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        ReviewItem object=(ReviewItem)adapter.getItem(position);
-                        adapter.removeItem(position);
-                        adapter.notifyDataSetChanged();
+                        ReviewItem object=(ReviewItem) Reviewadapter.getItem(position);
+                        Reviewadapter.removeItem(position);
+                        Reviewadapter.notifyDataSetChanged();
                         //==== REVIEW를 다시 불러옵니다. ====//
                         new REVIEW_FIND().execute("https://seoulclass.ml/review/download");
                     }
@@ -169,45 +165,6 @@ public class ReviewTest extends AppCompatActivity {
                 });
         builder.show();
     }
-
-
-    class LOGOUTTASK extends AsyncTask<String,String,String>{
-        HttpURLConnection con=null;
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                URL url = null;
-                url = new URL(urls[0]);
-
-                con = (HttpURLConnection) url.openConnection();
-
-                if(MainActivity.m_session){
-                    Log.e("cookie","cookie working");
-                    con.setRequestProperty("Cookie", MainActivity.m_cookies);
-                }
-                con.connect();
-
-                Map<String, List<String>> imap = con.getHeaderFields();//뭐라도 수행해야됨
-                con.disconnect();
-                MainActivity.isLoggedIn=false;
-                OAuthLogin.getInstance().logout(com.sc.jn.seoulclass.Login.mContext);
-
-                //==== kakao LOGOUTTASK =====//
-                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
-                    @Override
-                    public void onCompleteLogout() {
-
-                    }
-                });
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-    }
-
     //==== ListView Adapter ====//
     class ReviewAdapter extends BaseAdapter {
         ArrayList<ReviewItem> items = new ArrayList<ReviewItem>();
@@ -502,8 +459,8 @@ public class ReviewTest extends AppCompatActivity {
                         item = new ReviewItem((float) object.getDouble("rating"), object.getString("contents"), object.getString("user_id") + "/" + object.getString("login_route"));
                     }
                     download=true;
-                    adapter.addItem(item);
-                    adapter.notifyDataSetChanged();
+                    Reviewadapter.addItem(item);
+                    Reviewadapter.notifyDataSetChanged();
                 }
 
             } catch (JSONException e) {
