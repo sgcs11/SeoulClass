@@ -1,6 +1,9 @@
 package com.sc.jn.seoulclass.Model;
 
-public class ClassListItem {
+import java.io.Serializable;
+
+public class ClassListItem implements Serializable{
+    private String id;
     private String title; // 제목
     private String location; //장소
     private String maxclassnm; //대분류명
@@ -16,7 +19,8 @@ public class ClassListItem {
     public ClassListItem() {
     }
 
-    public ClassListItem(String title, String location, String maxclassnm, String minclassnm, String pay, String usetgtinfo, String url, String opnbgndt, String opnenddt, String rcptbgnt, String rcptenddt) {
+    public ClassListItem(String id, String title, String location, String maxclassnm, String minclassnm, String pay, String usetgtinfo, String url, String opnbgndt, String opnenddt, String rcptbgnt, String rcptenddt) {
+        this.id = id;
         this.title = title;
         this.location = location;
         this.maxclassnm = maxclassnm;
@@ -28,6 +32,14 @@ public class ClassListItem {
         this.opnenddt = opnenddt;
         this.rcptbgnt = rcptbgnt;
         this.rcptenddt = rcptenddt;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

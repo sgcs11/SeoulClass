@@ -2,28 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:padding="10dp"
+    android:background="@drawable/all_dot_lines">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_normal"
-        android:text="New Text"
+        android:textSize="@dimen/cl_txt_size_title"
+        android:text="Title"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
         android:id="@+id/txt_classList_title"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_normal"
-        android:text="New Text"
-        android:id="@+id/txt_classList_date"
+        android:textSize="@dimen/cl_txt_size_content"
+        android:textStyle="bold"
+        android:text="Place"
+        android:id="@+id/txt_classList_place"
         />
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_normal"
-        android:text="New Text"
-        android:id="@+id/txt_classList_location"
-        />
+        android:orientation="vertical"
+        android:background="@drawable/textlines"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/cl_txt_size_content"
+            android:text="RDATE"
+            android:id="@+id/txt_classList_rdate"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/cl_txt_size_content"
+            android:text="SDATE"
+            android:id="@+id/txt_classList_sdate"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/cl_txt_size_content"
+            android:text="pay"
+            android:id="@+id/txt_classList_pay"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/cl_txt_size_content"
+            android:text="use"
+            android:id="@+id/txt_classList_use"
+            />
+    </LinearLayout>
+
 
 
 </LinearLayout>

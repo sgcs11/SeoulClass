@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:baselineAligned="false"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+
+
+
     <WebView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/mWebView"
         android:id="@+id/webView_main"
-        ></WebView>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mWebView"></WebView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <!--1열-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,76 +31,75 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/main_0"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_weight="1"
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:src="@drawable/ic_navigate_next" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="@string/main_0"
+                    android:textSize="@dimen/mTxt" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/main_1"
-                android:onClick="CategoryClickHandler"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
-                    android:gravity="center"
-                    android:text="@string/main_1"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main_2"
-                android:onClick="CategoryClickHandler"
+                android:layout_weight="1"
                 android:background="@drawable/left_right_dot_lines"
-                android:layout_weight="1">
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
                     android:gravity="center"
-                    android:text="@string/main_2"
-                    />
+                    android:id="@+id/main_txt_1"
+                    android:text="@string/main_1"
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/main_2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/main_3"
+                android:layout_weight="1"
                 android:onClick="CategoryClickHandler"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
                     android:gravity="center"
-                    android:text="@string/main_3"
-                    />
+                    android:id="@+id/main_txt_2"
+                    android:text="@string/main_2"
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
 
@@ -112,78 +113,79 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/main_3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main_4"
-                android:onClick="CategoryClickHandler"
+                android:layout_weight="1"
                 android:background="@drawable/top_bottom_dot_lines"
-                android:layout_weight="1">
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
                     android:gravity="center"
-                    android:text="@string/main_4"
-                    />
+                    android:id="@+id/main_txt_3"
+                    android:text="@string/main_3"
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/main_4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main_5"
-                android:onClick="CategoryClickHandler"
+                android:layout_weight="1"
                 android:background="@drawable/all_dot_lines"
-                android:layout_weight="1">
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
+                    android:gravity="center"
+                    android:id="@+id/main_txt_4"
+                    android:text="@string/main_4"
+                    android:textSize="@dimen/mTxt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/top_bottom_dot_lines"
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:src="@drawable/ic_navigate_next" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/main_5"
-                    />
-            </LinearLayout>
+                    android:id="@+id/main_txt_5"
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main_6"
-                android:onClick="CategoryClickHandler"
-                android:background="@drawable/top_bottom_dot_lines"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
-                    android:gravity="center"
-                    android:text="@string/main_6"
-                    />
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
 
@@ -192,90 +194,178 @@
         <!--3열-->
 
         <LinearLayout
+            android:id="@+id/main_6"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:id="@+id/main_7"
             android:onClick="CategoryClickHandler"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
                     android:gravity="center"
-                    android:text="@string/main_7"
-                    />
+                    android:id="@+id/main_txt_6"
+
+                    android:text="@string/main_6"
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/main_7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main_8"
-                android:onClick="CategoryClickHandler"
+                android:layout_weight="1"
                 android:background="@drawable/left_right_dot_lines"
-                android:layout_weight="1">
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
                     android:gravity="center"
-                    android:text="@string/main_8"
-                    />
+                    android:id="@+id/main_txt_7"
+
+                    android:text="@string/main_7"
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/main_8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main_9"
+                android:layout_weight="1"
                 android:onClick="CategoryClickHandler"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="8"
-                    android:src="@drawable/ic_navigate_next"
-                    />
+                    android:src="@drawable/ic_navigate_next" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:textSize="@dimen/mTxt"
                     android:gravity="center"
-                    android:text="@string/main_9"
-                    />
+                    android:id="@+id/main_txt_8"
+
+                    android:text="@string/main_8"
+                    android:textSize="@dimen/mTxt" />
             </LinearLayout>
 
 
         </LinearLayout>
 
+        <LinearLayout
 
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/main_9"
+                android:onClick="CategoryClickHandler"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/top_bottom_dot_lines"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:src="@drawable/ic_navigate_next" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:id="@+id/main_txt_9"
+
+                    android:text="@string/main_9"
+                    android:textSize="@dimen/mTxt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/all_dot_lines"
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:src="@drawable/ic_navigate_next" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:id="@+id/main_txt_10"
+
+                    android:text="@string/main_10"
+                    android:textSize="@dimen/mTxt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_11"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/top_bottom_dot_lines"
+                android:onClick="CategoryClickHandler"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:src="@drawable/ic_navigate_next" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:id="@+id/main_txt_11"
+
+                    android:text="@string/main_11"
+                    android:textSize="@dimen/mTxt" />
+            </LinearLayout>
+
+
+        </LinearLayout>
     </LinearLayout>
-
 
 
 </LinearLayout>

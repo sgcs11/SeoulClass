@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:paddingTop="@dimen/pa_vertical_padding"
+    tools:context=".AddressActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="지역 선택"
+        android:textColor="@android:color/black"
+        android:paddingLeft="@dimen/pa_horizontal_padding"
+        android:textSize="@dimen/txt_big" />
+
+    <!--중단-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:paddingLeft="@dimen/pa_horizontal_padding"
+        android:paddingRight="@dimen/pa_horizontal_padding"
+        android:id="@+id/pa_scrollView"
+        android:background="@color/colorNormalGray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="서울 전체"
+                    android:id="@+id/pa_addr_0"
+                    android:focusableInTouchMode="true"
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="강남구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_1"
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="강동구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_2"
+
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="강북구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_3"
+
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="강서구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_4"
+
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="관악구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_5"
+
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="광진구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_6"
+
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="구로구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_7"
+
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="금천구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_8"
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="노원구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_9"
+
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="도봉구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_10"
+
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="동대문구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_11"
+
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="동작구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_12"
+
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="마포구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_13"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="서대문구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_14"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="서초구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_15"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="성동구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_16"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="성북구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_17"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="송파구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_18"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="양천구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_19"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="영등포구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_20"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="용산구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_21"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="은평구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_22"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="종로구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_23"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/pa_vertical_margin"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="중구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_24"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pa_button_selector"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pa_button_txt_size"
+                    android:layout_weight="1"
+                    android:text="중랑구"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/pa_addr_25"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/pa_button_margin"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorNormalGray"
+                    android:layout_weight="1"
+
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+    <!--하단-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:gravity="bottom"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="취소"
+                android:textSize="@dimen/pa_button_txt_size"
+                android:textColor="#ff722b"
+                android:background="#ffffff"
+                android:onClick="cancel"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="확인"
+                android:textSize="@dimen/pa_button_txt_size"
+                android:textColor="#6de751"
+                android:background="#ffffff"
+                android:onClick="submit"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

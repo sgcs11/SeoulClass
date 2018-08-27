@@ -16,6 +16,10 @@
         <item name="colorControlActivated">@color/coloreditActive</item>
     </style>
 
+    <style name="PopUpTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

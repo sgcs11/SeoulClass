@@ -1,0 +1,13 @@
+package com.sc.jn.seoulclass;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class DibsActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dibs);
+    }
+}
