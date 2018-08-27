@@ -31,4 +31,7 @@
     <string name="kakao_app_key">c635405ee8fc12bda8b0dc5f782787a2</string>
 
     <string name="signup"><u>회원가입</u></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

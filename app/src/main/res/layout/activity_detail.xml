@@ -1,193 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
     tools:context=".DetailActivity">
-
-    <LinearLayout
-        android:layout_height="0dp"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_weight="6"
-        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:text="제목"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:id="@+id/dt_txt_title"
+        android:background="@android:color/white"
+        />
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/colorNormalGray"
+        android:padding="0dp"
         android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            android:id="@+id/dt_img"
+            android:layout_weight="4"
+            android:layout_marginBottom="10dp"
+            />
+        <include layout="@layout/content_detail"
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="제목 : "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="위치 : "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/maxclassnm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="대분류 : "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/minclassnm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="소분류 : "
-            android:textSize="20dp"
-            />
-        <TextView
-            android:id="@+id/pay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="결제방법 - "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/usetgtinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="대상 : "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="페이지 바로가기 : "
-            android:textSize="20dp"
-            android:linksClickable="true"
-            android:autoLink="web"
-            />
-
-        <TextView
-            android:id="@+id/opnbgndt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수업 시작일 : "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/opnenddt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수업 종료일 : "
-            android:textSize="20dp"
-            />
-
-        <TextView
-            android:id="@+id/rcptbgnt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="접수 시작일 : "
-            android:textSize="20dp"
-            />
-        <TextView
-            android:id="@+id/rcptenddt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="접수 마감일 : "
-            android:textSize="20dp"
-            />
-
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="6"></include>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="4"
-        >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="bottom"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                >
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <CheckBox
-                        android:id="@+id/checkBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/Review"
-                        android:layout_alignParentStart="true"
-                        android:checked="true"
-                        android:text="익명"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                    <RatingBar
-                        android:id="@+id/ratingBar"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_width="79dp"
-                        android:layout_height="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:isIndicator="false"
-                        android:numStars="5"
-                        android:rating="5"
-                        android:stepSize="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </LinearLayout>
-
-                <EditText
-                    android:id="@+id/Review"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/listView"
-                    android:layout_toStartOf="@+id/submit"
-                    android:ems="10"
-                    android:hint="여러분의 리뷰를 남겨주세요."
-                    android:inputType="textPersonName"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/listView"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="16dp"
-                    android:text="작성"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="218dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ListView>
-
-        </LinearLayout>
 </LinearLayout>

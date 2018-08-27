@@ -33,4 +33,8 @@
     <dimen name="cl_txt_size_title">20dp</dimen>
     <dimen name="cl_txt_size_content">15dp</dimen>
 
+    <!--DetailActivity-->
+    <dimen name="dt_txt_size">10dp</dimen>
+    <dimen name="dt_txt_padding">2dp</dimen>
+
 </resources>
