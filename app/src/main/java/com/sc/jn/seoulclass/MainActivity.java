@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity
                     new LOGOUTTASK().execute("https://seoulclass.ml/logout");
                     Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                     m_session = false;
+                    isLoggedIn=false;
                     user_id=""; nickname=""; login_route="";
                     WhoLogin.setText("");
                     Login_btn.setText("로그인");
