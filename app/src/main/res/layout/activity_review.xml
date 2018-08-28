@@ -28,6 +28,7 @@
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:gravity="center"
+                android:layout_marginRight="70dp"
                 android:id="@+id/toolbar_title_join"/>
         </android.support.v7.widget.Toolbar>
     <ListView

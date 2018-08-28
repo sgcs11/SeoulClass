@@ -3,9 +3,14 @@ package com.sc.jn.seoulclass;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.sc.jn.seoulclass.Model.ClassListItem;
 import com.sc.jn.seoulclass.Util.ClassListAdapter;
@@ -16,16 +21,22 @@ import java.util.ArrayList;
 public class ClassListActivity extends AppCompatActivity {
 
     ClassListAdapter adapter;
-
+    Toolbar toolbar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_list);
         int nm = getIntent().getIntExtra("nm",0);
+        String title = getIntent().getStringExtra("title");
         ArrayList<ClassListItem> temp;
         temp = selectCategory(nm);
 
         ListView listView;
+        toolbar = (Toolbar) findViewById(R.id.dt_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((TextView)findViewById(R.id.dt_txt_toolbar)).setText(title);
 
 
         adapter = new ClassListAdapter(temp);
@@ -43,6 +54,24 @@ public class ClassListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.activity_classlist, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case  R.id.filter :
+                return true;
+        }
+        return true;
     }
 
     private ArrayList<ClassListItem> selectCategory(int nm){
@@ -97,11 +126,4 @@ public class ClassListActivity extends AppCompatActivity {
         return temp;
 
     }
-
-
-
 }
-
-
-
-

@@ -15,4 +15,7 @@
 
     <!--Detail Activity-->
     <color name="dt_txt_color">#000000</color>
+
+    <!--Favorite color-->
+    <color name="favorite_color">#ff0000</color>
 </resources>

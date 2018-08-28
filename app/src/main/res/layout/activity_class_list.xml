@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,18 +7,73 @@
     android:orientation="vertical"
     tools:context=".ClassListActivity">
 
-    <ImageView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/dt_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview_empty"
-        android:src="@drawable/tt"
-        />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
 
-    <ListView
-        android:id="@+id/listview_classList"
+
+        <TextView
+            android:id="@+id/dt_txt_toolbar"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/txt_normal" />
+
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white">
-    </ListView>
+        android:layout_height="match_parent">
+        <!--필터-->
+        <LinearLayout
+            android:id="@+id/dt_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="1번" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="1번" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="1번" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="1번" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/listview_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/tt" />
+
+
+        <ListView
+            android:id="@+id/listview_classList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+        </ListView>
     </RelativeLayout>
+
+</LinearLayout>

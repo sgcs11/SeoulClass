@@ -39,7 +39,6 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ReviewFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     private Button submit;
     private RatingBar ratingBar;
     private EditText Review;
@@ -56,7 +55,6 @@ public class ReviewFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static ReviewFragment newInstance() {
         ReviewFragment fragment = new ReviewFragment();
         Bundle args = new Bundle();
