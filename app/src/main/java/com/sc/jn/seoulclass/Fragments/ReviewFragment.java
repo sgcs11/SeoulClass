@@ -128,7 +128,7 @@ public class ReviewFragment extends Fragment {
                     idtemp="익명";
                 else
                     idtemp= MainActivity.user_id+"/"+MainActivity.login_route;
-                Reviewadapter.addItem(new ReviewItem(ratingBar.getRating(),Review.getText().toString(),idtemp));
+                Reviewadapter.addItem(new ReviewItem(ratingBar.getRating(),Review.getText().toString(),idtemp,class_name));
             }
         });
         return view;
@@ -447,10 +447,10 @@ public class ReviewFragment extends Fragment {
                 for(int i=0;i<jsonArray.length();i++){
                     JSONObject object=jsonArray.getJSONObject(i);
                     if(object.getString("anonymous").equals("yes")){
-                        item= new ReviewItem((float) object.getDouble("rating"), object.getString("contents"), "익명");
+                        item= new ReviewItem((float) object.getDouble("rating"), object.getString("contents"), "익명",class_name);
                     }
                     else {
-                        item = new ReviewItem((float) object.getDouble("rating"), object.getString("contents"), object.getString("user_id") + "/" + object.getString("login_route"));
+                        item = new ReviewItem((float) object.getDouble("rating"), object.getString("contents"), object.getString("user_id") + "/" + object.getString("login_route"),class_name);
                     }
                     download=true;
                     Reviewadapter.addItem(item);

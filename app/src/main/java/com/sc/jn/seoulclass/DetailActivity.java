@@ -36,8 +36,6 @@ public class DetailActivity extends AppCompatActivity {
         TabLayout mTab = (TabLayout)findViewById(R.id.dt_tabs);
         mTab.setupWithViewPager(viewPager);
 
-        //==== adapter로 데이터 전달 ====//
-
     }
 
     @Override

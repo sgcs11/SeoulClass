@@ -5,11 +5,13 @@ public class ReviewItem {
     float rating;
     String contents;
     String ID;
+    String ClassID;
 
-    public ReviewItem(float rating, String contents, String ID) {
+    public ReviewItem(float rating, String contents, String ID, String ClassID) {
         this.rating = rating;
         this.contents = contents;
         this.ID = ID;
+        this.ClassID = ClassID;
     }
 
     public float getRating() {
@@ -36,12 +38,21 @@ public class ReviewItem {
         this.ID = ID;
     }
 
+    public String getClassID() {
+        return ClassID;
+    }
+
+    public void setClassID(String classID) {
+        ClassID = classID;
+    }
+
     @Override
     public String toString() {
         return "ReviewItem{" +
                 "rating=" + rating +
                 ", contents='" + contents + '\'' +
                 ", ID='" + ID + '\'' +
+                ", ClassID='" + ClassID + '\'' +
                 '}';
     }
 }
